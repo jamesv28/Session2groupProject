@@ -147,3 +147,9 @@ footer {
 #brewTitle {
   margin-top: 25vh;
 }
+
+#breweriesHeader {
+  margin-top: 40px;
+}
+
+/* TODO: merge all stylesheets when finished */
