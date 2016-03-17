@@ -8,11 +8,32 @@
 
 <div class="row" id="userDash">
    <div class="container">
-      <div class="col-sm-3 col-md-3">
-         <h3>Welcome to your tapt! dashboard, {{user.name}}.</h3>
+       <h1 class="text-center">Welcome to your <strong class="red">tapt</strong>  dashboard, {{user.name}}.</h1>
+
+       <div class="col-sm-3 col-md-3">
+           <h3 id="brewTitle" >Saved Breweries</h3>
+           <div id="savedBreweries">
+               {% if savedBrewery.length > 0 %}
+               {% for brewery in savedBrewery %}
+               <div class='indBrew'>
+                   <h3>{{brewery.name}}</h3>
+                   <h4>Address: {{brewery.address}} {{brewery.city}}, {{brewery.state}}, {{brewery.zip}}</h4>
+                   <p><strong>Description: </strong> {{brewery.description}}</p>
+                   <a href="/brewery/{{brewid.id}}" class="btn btn-primary pull-left">Learn more here</a>
+
+                   <form class="" role="form" method="post" action="/brewery/{{brewery.brewery_id}}/remove">
+                       <input class="hidden" name="id" value="{{brewery.id}}">
+                       <button type="submit" class="btn btn-danger">Remove Brewery</button>
+                   </form>
+               </div>
+               {% endfor %}
+               {% else %}
+               <h5>You have no saved breweries... get on it!</h5>
+               {% endif %}
+           </div>
       </div>
       <div class="col-md-6 col-sm-6">
-         <h2 class="text-center">Saved Beers</h2>
+         <h3 class="text-center">Saved Beers</h3>
          <div id="savedBeers">
          {% if savedBeers.length > 0 %}
          {% for beer in savedBeers %}
@@ -23,11 +44,11 @@
                    <p><strong>ABV: </strong> {{beer.abv}}</p>
                    <p><strong>IBU: </strong> {{beer.ibu}}</p>
                    <p><strong>Description: </strong> {{beer.description}}</p>
-                   <a href='/beer/{{beer.beer_id}}' class="btn btn-primary">Learn more here</a>
+                   <a href='/beer/{{beer.beer_id}}' class="btn btn-primary pull-left">Learn more here</a>
 
-                   <form class="form-horizontal" role="form" method="post" action="/beer/{{beer.beer_id}}/remove">
+                   <form class="" role="form" method="post" action="/beer/{{beer.beer_id}}/remove">
                     <input class="hidden" name="id" value="{{beer.id}}">
-                    <button type="submit" class="btn btn-primary">Remove Beer</button>
+                    <button type="submit" class="btn btn-danger">Remove Beer</button>
                   </form>
                </div>
             {% endfor %}
@@ -35,30 +56,11 @@
             <h5>You have no saved beers... so go get TAPT!</h5>
             {% endif %}
          </div>
-         <h2 id="brewTitle" class="text-center">Saved Breweries</h2>
-         <div id="savedBreweries">
-          {% if savedBrewery.length > 0 %}
-            {% for brewery in savedBrewery %}
-               <div class='indBrew'>
-                  <h3>{{brewery.name}}</h3>
-                   <h4>Address: {{brewery.address}} {{brewery.city}}, {{brewery.state}}, {{brewery.zip}}</h4>
-                   <p><strong>Description: </strong> {{brewery.description}}</p>
-                   <a href="/brewery/{{brewid.id}}" class="btn btn-primary">Learn more here</a>
 
-                  <form class="form-horizontal" role="form" method="post" action="/brewery/{{brewery.brewery_id}}/remove">
-                   <input class="hidden" name="id" value="{{brewery.id}}">
-                   <button type="submit" class="btn btn-primary">Remove Brewery</button>
-                  </form>
-               </div>
-            {% endfor %}
-            {% else %}
-            <h5>You have no saved breweries... get on it!</h5>
-            {% endif %}
-         </div>
 
       </div><!-- end of middle contaienr -->
       <div class="col-md-3 col-sm-3">
-         <h2>Add a brewery</h2>
+         <h3>Add a brewery</h3>
          <a href="/breweries/new" class="btn btn-primary">Create New Brewery</a>
          <div id="ownedBreweries">
             <h2>Owned breweries</h3>
