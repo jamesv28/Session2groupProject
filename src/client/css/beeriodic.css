@@ -13,9 +13,7 @@ button{
   width: 10%;
   float:right;
   margin: 1%;
-  padding:;
   text-align: center;
-  
   font-size: 6px; 
 }
 
@@ -50,6 +48,10 @@ button{
 }
 .thetop{
   text-align: center;
+  color: #C63D0F;
+}
+
+.headerColor {
   color: #C63D0F;
 }
 .thetopp{
