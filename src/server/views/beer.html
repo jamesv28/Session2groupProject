@@ -25,10 +25,14 @@
          <p><strong>Hop Ingredients: </strong>{{beertypes[0].hopsingr}}</p>
          <h3 class="text-center">Sensations</h3>
          <p class="text-center">Sensation categories include flavor, body, aroma and head. </p>
-         <p><strong>Boddy: </strong> {{beertypes[0].body}}</p>
-         <p><strong>Carbonation Taste:</strong>{{beertypes[0].carbonationtaste}}</p>
-         <p><strong>Finish Length: </strong>{{beertypes[0].finishlength}} </p>
-         <p><strong>Attenuation</strong>{{beertypes[0].attenuation}}</p>
+         <div class="col-sm-4 col-md-4 col-sm-offset-2 col-md-offset-2">
+            <p><strong>Body: </strong> {{beertypes[0].body}}</p>
+            <p><strong>Carbonation Taste:</strong>{{beertypes[0].carbonationtaste}}</p>
+         </div>
+         <div class="col-sm-4 col-md-4">
+            <p><strong>Finish Length: </strong>{{beertypes[0].finishlength}} </p>
+            <p><strong>Attenuation: </strong>{{beertypes[0].attenuation}}</p>
+         </div>
       </div>
    </div>
 </div>
